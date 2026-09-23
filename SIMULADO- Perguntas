@@ -1,0 +1,61 @@
+1ª PARTE - TEÓRICA
+
+1-C) Utilizar recursos de computação em nuvem que possam ser provisionados conforme a demanda.
+
+2-A) software como serviço, ou SaaS.
+
+3-E) IaaS, pois fornece infraestrutura virtual para a empresa administrar.
+
+4-B) PaaS, pois oferece uma plataforma gerenciada para a aplicação.
+
+5-D) nuvem híbrida, pela combinação de recursos privados e públicos.
+
+6-A) Nuvem privada.
+
+7-C) O acesso ao serviço remoto depende de conectividade; a continuidade precisa ser planejada.
+
+8-E) Acompanhar a utilização dos recursos e as regras de cobrança do serviço contratado.
+
+9-B) virtualização por meio de um hypervisor e máquinas virtuais.
+
+10-D) A máquina virtual possui seu sistema operacional convidado, enquanto contêineres compartilham o kernel do hospedeiro.
+
+11-A) a imagem serve de base para criar uma ou mais instâncias em execução, chamadas contêineres.
+
+12-C) Usar uma verificação dos contêineres em execução, como docker ps.
+
+13-E) -p 8090:80, porque a porta do ambiente vem antes da porta interna.
+
+14-B) Executar curl http://localhost:8090 e examinar a resposta.
+
+15-D) Parar o contêiner e depois removê-lo.
+
+16-A) Executar as aplicações em contêineres com as respectivas dependências.
+
+17-C) Docker executa contêineres, que podem integrar uma solução em nuvem, mas seu uso isolado não define o modelo de implantação.
+
+18-E) Utilizar uma máquina virtual com o sistema operacional convidado necessário.
+
+19-Modelo de Serviço Proposto: IaaS (Infraestrutura como Serviço).
+
+Divisão de Responsabilidades:
+
+Provedor de Nuvem: Responsável pela infraestrutura física (hardware, data center, rede física, virtualização).
+
+Empresa: Responsável pela instalação, configuração e manutenção do Sistema Operacional, servidores web, middlewares e código da aplicação.
+
+Ajuste de Capacidade: A empresa pode utilizar mecanismos de escalabilidade/auto-scaling (escalonamento horizontal ou vertical) para aumentar o número de instâncias virtuais durante os picos de acesso da campanha e reduzi-los nos períodos de baixa demanda.
+
+Cuidado com Custos: Configurar alertas de orçamentos (budget alerts) no painel do provedor, aplicar políticas de desligamento automatizado de ambientes de teste e acompanhar relatórios periódicos de consumo (governança de custos/FinOps) para evitar a cobrança de recursos ociosos.
+
+20-Diferença entre Imagem e Contêiner:
+
+Imagem: É o gabarito/molde estático (somente leitura) que contém todas as dependências, bibliotecas e executáveis necessários para rodar a aplicação.
+
+Contêiner: É a instância em execução criada a partir dessa imagem, possuindo um estado e uma camada de escrita executável.
+
+Como Verificar a Execução: Executar o comando docker ps no terminal para listar os contêineres ativos no momento.
+
+Conferir Mapeamento de Portas: Observar a coluna PORTS gerada pelo comando docker ps para garantir que esteja exibindo a associação correta (ex: 0.0.0.0:8090->80/tcp).
+
+Testar a Resposta HTTP: Executar o comando curl http://localhost:8090 no terminal local ou acessar http://localhost:8090 no navegador para checar se o HTML esperado é retornado.
