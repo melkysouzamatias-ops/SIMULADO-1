@@ -1,2 +1,2 @@
 # SIMULADO-1
-Simulado de Sistemas Distribuídos
+Simulado de Computação em Nuvem
