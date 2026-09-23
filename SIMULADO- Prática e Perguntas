@@ -1,0 +1,27 @@
+Código utilizado no KillerCoda:
+
+cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Comunicado interno</title>
+</head>
+<body>
+<h1>Comunicado interno disponível</h1>
+</body>
+</html>
+EOF
+docker run -d --name comunicado -p 8090:80 nginx:alpine
+docker cp index.html comunicado:/usr/share/nginx/html/index.html
+docker ps
+curl http://localhost:8090
+
+1-Qual a diferença entre nginx:alpine e o contêiner comunicado?
+nginx:alpine é a imagem base (modelo estático e somente leitura) armazenada no repositório. O comunicado é o contêiner em execução (instância ativa) instanciado a partir dessa imagem, rodando o servidor web e servindo os arquivos locais.
+
+2-O que significa o mapeamento 8090:80?
+Significa que a porta 8090 do computador/servidor hospedeiro está redirecionando todo o tráfego recebido para a porta 80 interna do contêiner (onde o Nginx escuta as requisições HTTP).
+
+3-Qual saída comprova que a página solicitada respondeu?
+O retorno do comando curl http://localhost:8090 que exibiu o código HTML contendo a tag <h1>Comunicado interno disponível</h1>.
